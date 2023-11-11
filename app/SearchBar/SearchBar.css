@@ -1,0 +1,31 @@
+input{
+    background-color: azure;
+    color: black;
+    padding: 2px;
+    margin: 2px;
+}
+
+.window{
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    padding: 5px;
+    border: red;
+    border-radius: 2px;
+    margin: auto;
+}
+
+p{
+    text-wrap: wrap;
+}
+
+#display{
+    margin: auto;
+    align-items: center;
+    align-content: center;
+    border-radius: 3px;
+    border: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
