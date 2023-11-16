@@ -26,6 +26,5 @@ p{
     border-radius: 3px;
     border: black;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
 }

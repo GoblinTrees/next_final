@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import CountButton from "./CountButton/CountButton"
 import SearchBar from "./SearchBar/SearchBar"
 
+/*
 const App = () => {
   const [productsState, setProductState] = useState([]);
   useEffect(() => {
@@ -21,7 +22,7 @@ const products = [
   "toothbrush",
   "toothpaste",
 ]
-
+*/
 export default function Page() {
  return <div>
     <CountButton name={"Num1"} mult={1} />

@@ -3,35 +3,35 @@ import "./SearchBar.css"
 
 
 export default function SearchBar(){
-const [searchVal,setSearchVal] = useState("");
-    function handleInputChange(){
-            setSearchVal(event.target.value)
-        }
-    
-
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const [searchVal,setSearchVal] = useState("");
+    useEffect(fetchAPIData, [searchVal])
     function fetchAPIData() {
         fetch('https://fakestoreapi.com/products')
             .then(response => response.json())
-            //.then(result =>console.log(result))
             .then(products => {
-                const currentFilter = products.map((product, index) => {
-                    return <div class="window">
-                        <img style={{width: "150px"}} src={product.image} alt={product.title} ></img>
+                const filteredProducts = products.filter((el)=>{return el.title.toLowerCase().includes(searchVal.toLowerCase());})
+                const currentFilter = filteredProducts.map((product, index) => {
+                    return <div class="window" key={index}>
+                        <img style={{width: "120px"}} src={product.image} alt={product.title} ></img>
                         <p>{product.title}</p>
-                        <p>{product.price}</p>
+                        <p>${product.price}</p>
                     </div>
                 })
                 setFilteredProducts(currentFilter)
             })
     }
-    useEffect(fetchAPIData, [])
+    function handleInputChange(event){
+            setSearchVal(event.target.value);
+        }
+    
+
 
     return <div id="searchDiv">
         <div>
         <input type="text" id="wordFilter" value={searchVal} onChange={handleInputChange}></input>
         </div>
-        <div id="display">
+        <div id="display" >
         {filteredProducts}
         </div>
     </div>
